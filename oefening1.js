@@ -12,11 +12,9 @@ const town = rl.question(`Wat is uw gemeente?
 > `)
 
 function fullAddress(){
-    if (firstName == '' || lastName == '' || street == '' || town == '' ||
-        postcode == '' || postcode > 9900 || postcode < 1000 || postcode == ''){
+    if (firstName == '' || lastName == '' || street == '' || town == '' || postcode == '' || postcode > 9900 || postcode < 1000 || postcode == ''){
         return `Minstens één van de ingevulde velden is niet geldig!`
-    } else if (firstName.length > 40 || lastName.length > 40 || street.length > 40 ||
-        postcode.length > 40 || town.length > 40){
+    } else if (firstName.length > 40 || lastName.length > 40 || street.length > 40 || postcode.length > 40 || town.length > 40){
             return `Kader is te breed. Gebruik afkortingen in de breedste stukken.`
         }
     return `${firstName.charAt(0).toUpperCase()}. ${lastName.charAt(0).toUpperCase() + lastName.substring(1).toLowerCase()}
