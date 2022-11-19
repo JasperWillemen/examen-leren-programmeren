@@ -23,8 +23,9 @@ Text.prototype.wordCount = function(){
 
 Text.prototype.vowelCount = function(){
     let vowels = 0
-    for (let i = 0; i < this.str.length; i++){
-        if (this.str[i] == 'a' || this.str[i] == 'e' || this.str[i] == 'i' || this.str[i] == 'o' || this.str[i] == 'u'){
+    const splitStr = this.str.split("")
+    for (let i = 0; i < splitStr.length; i++){
+        if (splitStr[i] == 'a' || this.str[i] == 'e' || this.str[i] == 'i' || this.str[i] == 'o' || this.str[i] == 'u'){
             vowels += 1
         } 
     }
@@ -50,8 +51,9 @@ Text.prototype.prependString = function(string){
 }
 
 let string1 = new Text('Testing This Thing and now adding more words');
-let string2 = new Text("of dit lukt ").prependString("Eens kijken ").appendString(", niewaar?")
+// let string2 = new Text("of dit lukt ").prependString("Eens kijken ").appendString(", niewaar?") -> helaas...
 
+console.log(string1)
 console.log(string1.left(5))
 console.log(string1.right(3))
 console.log(string1.charCount())
@@ -60,4 +62,3 @@ console.log(string1.vowelCount())
 console.log(string1.capitalsCount())
 console.log(string1.appendString('navoegsel'))
 console.log(string1.prependString('Voorvoegsel'))
-console.log(string2)
