@@ -17,27 +17,30 @@ Painter.prototype.addPainting = function(name, width, height, price){
 
 Painter.prototype.removePainting = function (name){
     this.list = this.list.filter(function (painting){
-        return painting.list !== name 
+        return painting.name !== name 
     })
 }
 
-Painter.prototype.showPainting = function (){
+const firstPainter = new Painter(`Gustav`, `Klimt`, `symbolism`)
+const secondPainter = new Painter('Leonardo', 'da Vinci', 'renaissance')
+
+Painter.prototype.getList = function (){
     const lijn = '-';
     let output = '';
     output += `${Painter.firstName} ${Painter.lastName} / ${Painter.style}`
-    for (let i = 0; i < firstPainter.list.length; i++){
+    for (let i = 0; i < this.list.length; i++){
         output += `
-  - Naam : ${firstPainter.list[i].name}
-  - Canvas : ${firstPainter.list[i].widht} x ${firstPainter.list[i].height}
-  - Prijs : ${firstPainter.list[i].price}
-    ${lijn.repeat(20)}`
+  - Naam : ${this.list[i].name}
+  - Canvas : ${this.list[i].size}
+  - Prijs : €${this.list[i].price.toLocaleString()}
+    ${lijn.repeat(30)}`
     }
+    return output
 }
 
-const firstPainter = new Painter(`Gustav`, `Klimt`, `symbolism`)
 firstPainter.addPainting('the Kiss', 20, 20, 200000)
 firstPainter.addPainting('Death and life', 50, 38, 125000)
-firstPainter.removePainting('the Kiss')
-firstPainter.showPainting()
+secondPainter.addPainting('Mona Lisa', 77, 35, 860000000)
 
-console.log(firstPainter.showPainting())
+console.log(firstPainter.getList())
+console.log(secondPainter.getList())
