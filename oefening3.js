@@ -21,9 +21,23 @@ Painter.prototype.removePainting = function (name){
     })
 }
 
+Painter.prototype.showPainting = function (){
+    const lijn = '-';
+    let output = '';
+    output += `${Painter.firstName} ${Painter.lastName} / ${Painter.style}`
+    for (let i = 0; i < firstPainter.list.length; i++){
+        output += `
+  - Naam : ${firstPainter.list[i].name}
+  - Canvas : ${firstPainter.list[i].widht} x ${firstPainter.list[i].height}
+  - Prijs : ${firstPainter.list[i].price}
+    ${lijn.repeat(20)}`
+    }
+}
+
 const firstPainter = new Painter(`Gustav`, `Klimt`, `symbolism`)
 firstPainter.addPainting('the Kiss', 20, 20, 200000)
 firstPainter.addPainting('Death and life', 50, 38, 125000)
 firstPainter.removePainting('the Kiss')
+firstPainter.showPainting()
 
-console.log(firstPainter.list)
+console.log(firstPainter.showPainting())
